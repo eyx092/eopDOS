@@ -3,6 +3,7 @@ print("Starting...")
 import time
 from random import *
 import sys
+import winsound
 init_time = randint(1,3)
 time.sleep(init_time)
 files_U = 0
@@ -76,20 +77,27 @@ def chkdsk_f():
 if statement_placer == 0:
     try:
         print("Checking key...")
+        winsound.Beep(750,1000)
         time.sleep(1)
         file = open("eopDOS-key.txt", "r")
         fileRead = (file.read())
         if fileRead == '5k8r!2T@J90(7{]ad&3':
+            winsound.Beep(750,100)
             print("Correct key.")
             print("Continuing startup...")
             time.sleep(1)
         else:
+            winsound.Beep(750,100)
+            winsound.Beep(750,100)
+            winsound.Beep(750,100)
             print("Incorrect key.")
             print("Startup aborted.")
             time.sleep(4)
             exit()
     except FileNotFoundError:
-        
+        winsound.Beep(750,100)
+        winsound.Beep(750,100)
+        winsound.Beep(750,100)
         print("Could not find startup key.")
         print("Startup aborted.")
         time.sleep(4)
